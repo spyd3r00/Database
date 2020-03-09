@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class = "text-center">
+		<form method="POST" action="/Register" class="form-horizontal">
+			{{ form.csrf_token }}
+			{{ form.hidden_tag() }}
+			<fieldset >
+				<div id="legend">
+				<legend class="">Register Student In Database</legend>
+				</div>
+
+				<div class="control-group">
+					<label class="text-center">
+					{{ form.fullName.label() }}
+					{% if form.fullName.errors %}
+						{{ form.fullName(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback"> </div>
+							{% for error in form.fullName.errors %}
+								<span> {{ error }}</span>
+							{%  endfor %}
+					{% else  %}
+						<div class="text-center">
+							{{ form.fullName(class="form-control form-control-lg") }}
+						</div>
+					{% endif %}
+					</label>
+				</div>
+				<div class="control-group">
+					<label class="text-center">
+					{{ form.Course.label() }}
+					{% if form.Course.errors %}
+						{{ form.Course(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback"> </div>
+							{% for error in form.Course.errors %}
+								<span> {{ error }}</span>
+							{%  endfor %}
+					{% else  %}
+						<div class="text-center">
+							{{ form.Course(class="form-control form-control-lg") }}
+						</div>
+					{% endif %}
+					</label>
+				</div>
+				<div class="control-group">
+					<label class="text-center">
+					{{ form.idNumber.label() }}
+					{% if form.idNumber.errors %}
+						{{ form.idNumber(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback"> </div>
+							{% for error in form.idNumber.errors %}
+								<span> {{ error }}</span>
+							{%  endfor %}
+					{% else  %}
+						<div class="text-center">
+							{{ form.idNumber(class="form-control form-control-lg") }}
+						</div>
+					{% endif %}
+					</label>
+					</div>
+				</div>
+			</fieldset>
+			<div class="text-center">
+				<br>
+				{{ form.submit(class="btn btn-info")}}
+			</div>
+		</form>		
+	</div>
+	<div class="text-center">
+		<br>
+		<small>
+			<label>
+			Already in the list? <a href="{{ url_for('home') }}">Home</a>
+			</lable>
+		</small>
+		</br>
+	</div>
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="/">Back <span class="sr-only">(current)</span></a>
+	      </li>
+	     </ul>
+	  </div>
+	</nav>
+
+{% if var %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID Number</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Course</th>
+      <th scope="col">Operation</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for data in var %}
+
+    <tr>
+      <th scope="row">{{ data.idNumber}}</th>
+      <td> {{  data.fullName }}</td>
+      <td>{{ data.Course }}</td>
+      <td>
+      	<a href="/Edit/{{ data.idNumber }}" class="btn btn-info"> Edit </button>
+      	<a href = "/Delete/{{ data.idNumber }}" class="btn btn-danger">Delete</button>
+
+      </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock content %}
