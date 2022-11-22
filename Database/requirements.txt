@@ -21,7 +21,7 @@ nltk==3.4.4
 numpy==1.17.4
 pandas==0.25.3
 pefile==2019.4.18
-Pillow==6.2.1
+Pillow==9.3.0
 PyAutoGUI==0.9.48
 pygame==1.9.6
 PyGetWindow==0.0.8
